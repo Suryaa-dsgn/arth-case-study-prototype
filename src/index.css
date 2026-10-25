@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* Self-hosted Geist from the `geist` npm package (OFL). */
+@font-face {
+  font-family: "Geist";
+  src: url("../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../node_modules/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Tokens. Values observed in arthproject.com CSS (see notes/visual-system.md); not official brand tokens. */
+:root {
+  --bg: #f4f7ec;
+  --surface: #ffffff;
+  --surface-2: #ecf1de;
+  --line: #e4e9d4;
+  --line-strong: #d6ddc2;
+  --ink: #16220c;
+  --ink-muted: #46583a;
+  --green-900: #19471a;
+  --green-950: #0f2e10;
+  --green-700: #2f7d34;
+  --lime: #ccec78;
+  --lime-soft: #eef8c9;
+}
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-green-900: var(--green-900);
+  --color-green-950: var(--green-950);
+  --color-green-700: var(--green-700);
+  --color-lime: var(--lime);
+  --color-lime-soft: var(--lime-soft);
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--green-900);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* One faint lime glow at the top right of the Overview header (site hero treatment), used once. */
+.overview-glow {
+  background: radial-gradient(40% 100% at 100% 0%, rgba(204, 236, 120, 0.25), transparent 70%);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes sheet-in-right {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}
+@keyframes sheet-in-left {
+  from {
+    transform: translateX(-24px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
